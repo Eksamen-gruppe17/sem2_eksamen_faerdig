@@ -36,7 +36,7 @@ console.log(data);
       data
         .filter((item) => item.type === "event")
         .map((data) => (
-          <a href={`event/${data.slug}`}>
+          <a href={`../event/${data.slug}`}>
             <div class="container" class={data.slug}>
               <img src={data.img} alt="" />
               <div class="bund">
