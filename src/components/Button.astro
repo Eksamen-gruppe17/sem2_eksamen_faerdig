@@ -1,0 +1,134 @@
+---
+const { variant } = Astro.props;
+import "../styles/style.css";
+---
+
+<button class={variant + " "}>
+  <slot />
+</button>
+
+<style>
+  button {
+    font-family: degular;
+    font-weight: 600;
+    display: flex;
+    max-width: auto;
+    height: auto;
+    padding: 13px 10px;
+    align-items: center;
+    align-content: space-between;
+    column-gap: 2px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  .black_btn {
+    color: white;
+    border-radius: 20px;
+    border: 1.5px solid #fff;
+    background-color: #000000;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    justify-content: center;
+  }
+  .black_btn:hover {
+    border: none;
+    border-radius: 20px;
+    border: 1.5px solid #fff;
+    background: #000000;
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.5) inset;
+  }
+
+  .white_btn {
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  }
+  .white_btn:hover {
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5) inset;
+  }
+
+  .lilla_btn {
+    background-color: rgb(117, 78, 242);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    background: #754ef2;
+    font-size: 20px;
+    justify-content: center;
+    font-style: italic;
+    font-family: switzer;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .lilla_btn:hover {
+    transition: 0.3s;
+    background: #000000;
+    color: gray;
+  }
+
+  .venue_btn {
+    color: white;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    background-color: #2c2b2a;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: switzer;
+    font-style: italic;
+    justify-content: center;
+    transition: 0.3s;
+  }
+
+  .venue_btn:hover {
+    transition: 0.3s;
+    background-color: #000000;
+    border: none;
+  }
+
+  .discover_btn {
+    color: white;
+    border-radius: 20px;
+    background-color: #2c2b2a;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: switzer;
+    font-style: italic;
+    justify-content: center;
+    transition: 0.3s;
+  }
+
+  .discover_btn:hover {
+    transition: 0.3s;
+    border: 0px solid #754ef2;
+    background-color: #754ef2;
+  }
+
+  .getintouch_btn {
+    color: white;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: #000000;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: switzer;
+    font-style: normal;
+    justify-content: center;
+    transition: 0.3s;
+    width: 200px;
+    height: 40px;
+    padding: 3px;
+  }
+
+  .getintouch_btn:hover {
+    transition: 0.3s;
+    border: 2px solid #181818;
+    background-color: #181818;
+    color: rgb(171, 171, 171);
+  }
+</style>

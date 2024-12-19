@@ -1,0 +1,49 @@
+---
+const menuItems = [
+  { icon: "/imgs/deals_icon.svg", label: "Deals", link: "/deals" },
+  { icon: "/imgs/event.svg", label: "Events", link: "/events" },
+  { icon: "/imgs/venues.svg", label: "Venues", link: "/venues" },
+];
+---
+
+<nav>
+  <ul>
+    {
+      menuItems.map((item) => (
+        <li>
+          <a href={item.link}>
+            {" "}
+            <img class="lilla" src={item.icon} alt="icon" /> <br /> {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15%;
+    list-style: none;
+  }
+  li a {
+    text-decoration: none;
+    font-family: switzer;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  li a:hover {
+    text-decoration: underline;
+  }
+
+  .lilla:hover {
+    filter: invert(53%) sepia(69%) saturate(7111%) hue-rotate(240deg) brightness(95%) contrast(100%);
+  }
+  a {
+    text-decoration: none;
+  }
+</style>

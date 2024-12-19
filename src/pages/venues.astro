@@ -1,0 +1,217 @@
+---
+import "../styles/style.css";
+import Mainlayout from "../layouts/Mainlayout.astro";
+import Menu from "../components/Menu.astro";
+import Button from "../components/Button.astro";
+
+const data = await fetch(
+  "https://ksreqhsmdxayccugiwmb.supabase.co/rest/v1/swingby",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzcmVxaHNtZHhheWNjdWdpd21iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM4MTk3MzAsImV4cCI6MjA0OTM5NTczMH0.PokJ8dTqtkRlPRLfB1cdL0grpnmsr5hdCpBQzVDHSJc",
+    },
+  }
+).then((res) => res.json());
+
+console.log(data);
+---
+
+<Mainlayout>
+  <div class="hero">
+    <img id="heroimg" src="imgs/hero_deal.webp" alt="" />
+    <h1 class="tekst">
+      Discover the best <span class="bold">deals, venues</span> and <span
+        class="bold">events</span
+      > near you
+    </h1>
+    <img id="pil" src="imgs/pil1.svg" alt="" />
+  </div>
+  <Menu />
+
+  <h1 class="eventh1">Venues</h1>
+  <section class="grid_1-1-1">
+    {
+      data
+        .filter((item) => item.type === "venue")
+        .map((data) => (
+          <a href={`${data.type}/${data.slug}`}>
+            <div class="container" class={data.slug}>
+              <img src={data.img} alt="" />
+              <div class="bund">
+                <div class="text">
+                  <h4>{data.title}</h4>
+                  <p>{data.bydel}</p>
+                  <p>{data.date_time}</p>
+                </div>
+                <div class="button">
+                  <Button variant="lilla_btn">More info</Button>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))
+    }
+  </section>
+</Mainlayout>
+
+<style>
+  img {
+    max-width: 100%;
+    border-radius: 30px;
+    max-height: 373px;
+  }
+  .container {
+    position: relative;
+    display: grid;
+    min-height: 100px;
+    max-height: 373px;
+    max-width: 373px;
+    margin: auto;
+  }
+
+  .eventh1 {
+    color: #fcfdf7;
+    font-family: degular;
+  }
+  .bund {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+  }
+  .text {
+    position: absolute;
+    bottom: 18px;
+    left: 16px;
+    color: #fcfdf7;
+    font-family: switzer;
+  }
+  .eventh1 {
+    color: #fcfdf7;
+    font-family: degular;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  h4 {
+    padding-bottom: 15px;
+  }
+  .button {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 1fr 1fr 1fr;
+    margin: 5rem 2rem 10rem 2rem;
+    align-items: center;
+  }
+
+  #pil {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    width: 50%;
+    justify-self: center;
+  }
+
+  #heroimg {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .tekst {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    color: #fcfdf7;
+    font-family: degular-display;
+    font-weight: 100;
+    font-size: 50px;
+    line-height: 2.8rem;
+    width: 13ch;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    font-size: 64px;
+    font-family: "degular";
+    font-style: normal;
+    color: #fcfdf7;
+  }
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10rem;
+  }
+  @media (max-width: 1040px) and (min-width: 800px) {
+    .grid_1-1-1 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  @media screen and (min-width: 800px) {
+    img {
+      max-width: 100%;
+      border-radius: 30px;
+    }
+
+    .bold {
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-row: 1fr;
+      margin: 5rem 10rem 10rem 10rem;
+      gap: 25px;
+    }
+    .tekst {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+      color: #fcfdf7;
+      font-family: degular-display;
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 4.2rem;
+      width: 17ch;
+      justify-self: center;
+    }
+    #pil {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: 60%;
+      justify-self: end;
+      align-self: flex-end;
+    }
+
+    #heroimg {
+      grid-column: 3 / 5;
+      grid-row: 1 / 2;
+    }
+    h2 {
+      font-size: 64px;
+      font-family: "degular";
+      font-style: normal;
+      color: #fcfdf7;
+    }
+    .flex {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10rem;
+    }
+    body {
+      background-color: #161616;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+import "../styles/style.css";
+---
+
+
+<div class="container">
+    <div class="step">
+        <img src="imgs/step1.webp" alt="">
+        <h4 class="tekst">Download the app from the app store</h4>
+    </div>
+    <div class="step">
+        <img src="imgs/step2.webp" alt="">
+        <h4 class="tekst">Sign up and start browsing for deals</h4>
+    </div>
+    <div class="step">
+        <img src="imgs/step3.webp" alt="">
+        <h4 class="tekst">Save money while making memories</h4>
+    </div>
+</div>
+
+<style>
+    img {
+        width: 100%;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin: 4rem 8rem;
+        gap: 50px;
+        align-items: center;   
+        font-family: degular-text;
+        font-weight: 100;
+        font-size: 25px; 
+    }
+
+    .step {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tekst {
+        max-width: 250px;
+        margin: auto;
+        text-align: center;
+        word-break: break-word;
+        align-self: flex-end;
+    }
+
+          @media screen and (min-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        margin: 3rem 15rem 5rem 15rem;
+        gap: 50px;
+        align-items: center;   
+        font-family: degular-text;
+        font-weight: 100;
+        font-size: 25px; 
+    }
+
+    .step {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tekst {
+        max-width: 250px;
+        margin: auto;
+        text-align: center;
+        word-break: break-word;
+        align-self: flex-end;
+    }
+        
+      }
+
+</style>

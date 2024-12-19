@@ -1,0 +1,71 @@
+---
+import Button from "./Button.astro";
+---
+
+                      <div class="container">
+              <img class="card_img" src="../imgs/oel2_deal.webp" alt="" />
+              <div class="tilbud">
+                <h4>Draftbeer 20,- all night</h4>
+              </div>
+              <div class="bund">
+                <div class="text">
+                  <h3>Gorilla</h3>
+                  <p>København V</p>
+                  <p>12 Januar from kl. 17:00</p>
+                </div>
+                <div class="button"><a href="/deal/draftbeer_20"><Button variant="lilla_btn">More info</Button></a>
+                </div>
+              </div>
+            </div>
+            <style>
+
+a {
+  text-decoration: none;
+}
+
+      .card_img {
+    max-width: 100%;
+    border-radius: 30px;
+    max-height: 373px;
+    
+  }
+  .container {
+    position: relative;
+    display: grid;
+    min-height: 100px;
+    max-height: 373px;
+    max-width: 373px;
+    margin: auto;
+    margin-bottom: 20px;
+   
+  }
+  .text {
+    position: absolute;
+    bottom: 18px;
+    left: 16px;
+    color: white;
+    font-family: switzer;
+  }
+
+    .tilbud {
+    position: absolute;
+    padding-top: 2rem;
+    justify-self: center;
+    grid-column: 1/2;
+    grid-row: 1 / 2;
+    font-family: switzer;
+    color: white;
+    font-size: 25px;
+  }
+
+    .bund {
+    display: grid;
+    repeat(auto-fit, minmax(200px, 1fr))
+  }
+
+    .button {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+            </style>

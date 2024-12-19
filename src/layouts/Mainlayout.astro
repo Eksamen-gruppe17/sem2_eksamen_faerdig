@@ -1,0 +1,42 @@
+---
+const { title } = Astro.props;
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+const data = await fetch(
+  "https://ksreqhsmdxayccugiwmb.supabase.co/rest/v1/swingby",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzcmVxaHNtZHhheWNjdWdpd21iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM4MTk3MzAsImV4cCI6MjA0OTM5NTczMH0.PokJ8dTqtkRlPRLfB1cdL0grpnmsr5hdCpBQzVDHSJc",
+    },
+  }
+).then((res) => res.json());
+
+console.log(data);
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="https://use.typekit.net/tuf8tha.css" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <Header />
+    </header>
+    <main>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+    <footer>
+      <Footer />
+    </footer>
+  </body>
+</html>
