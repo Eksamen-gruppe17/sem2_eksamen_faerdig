@@ -1,6 +1,7 @@
 ---
 import Button from "../../components/Button.astro";
 import Footer from "../../components/Footer.astro";
+import Card2 from "../../components/Card2.astro";
 
 export async function getStaticPaths() {
   const data = await fetch(
@@ -52,16 +53,7 @@ console.log(event);
       </p>
     </div>
     <div class="card_og_åbningstid">
-                <div class="container">
-              <img class="card_img" src="../imgs/gorilla.webp" alt="" />
-            <div class="tilbud">
-                <h4>Gorilla</h4>
-            </div>
-            <div class="bund">
-              <div class="text"><p>København V</p></div>
-              <div class="button"><Button variant="lilla_btn">More info</Button></div>
-          </div>
-        </div>
+<Card2/>
     </div>
   </div>
 <Footer/>
