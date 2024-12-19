@@ -36,7 +36,7 @@ console.log(data);
       data
         .filter((item) => item.type === "venue")
         .map((data) => (
-          <a href={`${data.type}/${data.slug}`}>
+          <a href={`../venue/${data.slug}`}>
             <div class="container" class={data.slug}>
               <img src={data.img} alt="" />
               <div class="bund">
